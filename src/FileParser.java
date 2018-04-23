@@ -5,12 +5,12 @@ import java.util.*;
  * Created by haosun on 4/20/18.
  */
 public class FileParser {
-    private final String inputFilePath = "../data/all_point.txt";
-    private final String outputFilePath = "../data/all_point_test.txt";
-    private final String inputBusStopFilePath = "../data/Bus_Stop.txt";
-    private final String inputBusLineFilePath = "../data/Bus_Line.txt";
-    private final String inputHotSpotFilePath = "../data/chicago_score.txt";
-    private final String inputParcelFilePath = "../data/all_point_test.txt";
+    private final String inputFilePath = "./data/all_point.txt";
+    private final String outputFilePath = "./data/all_point_test.txt";
+    private final String inputBusStopFilePath = "./data/Bus_Stop.txt";
+    private final String inputBusLineFilePath = "./data/Bus_Line.txt";
+    private final String inputHotSpotFilePath = "./data/chicago_score.txt";
+    private final String inputParcelFilePath = "./data/all_point_test.txt";
 
     public void writeToFile() {
         int counter = 0;
@@ -24,7 +24,7 @@ public class FileParser {
 
             while (sc.hasNextLine()) {
                 nextLine = sc.nextLine();
-                counter = counter % 5;
+                counter = counter % 50;
                 if (counter++ == 0) {
                     bw.write(nextLine);
                     bw.newLine();
