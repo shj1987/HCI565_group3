@@ -1,0 +1,100 @@
+
+
+#main h1{
+	color:rgba(149,45,1,1.0);
+	font-weight:bold;
+	font-size:160%;
+  }
+  
+#FAQ.collapse{
+	padding-right:40%;
+}
+.contact-position{
+	width: 20%;
+	display: inline-block;	
+	white-space:nowrap; 
+	position: relative;
+}
+.contact .container{
+	margin-left:0;
+	width:70%;
+}
+
+	
+#address li{
+	list-style-type: none;
+	font-weight:bold;
+}
+
+
+
+.feedback-titles{
+	float:left;
+	clear:both;
+}
+.feedback-titles p{
+	margin-top:54%;
+}
+
+.feedback-box{
+	float:left;
+	width:60%;
+	position:relative;
+}
+
+.feedback-box img{
+    margin-bottom:-90%;
+	index:-99px;
+	width:100%;
+	heigh:100%;
+}
+
+.form-group.feedback-typing{
+    width:75%;
+	display:table;
+	position:relative;
+	index:1px;
+	margin-left:10%;
+	top:0;
+	background-color: rgba(0, 0, 0, 0.3);
+	
+}
+.form{
+	margin-top:-30%;
+}
+
+.main-wrapper2 h1{
+	float:left;
+	clear:both;
+}
+
+.main-wrapper2 h15{
+	float:left;
+	clear:both;
+	padding-bottom:35px;
+}
+.main-wrapper2 h2{
+	float:left;
+	clear:both;
+}
+.main-wrapper2 button{
+	float:right;
+}
+
+.main-wrapper2 ul{
+	clear:both;
+}
+.move-left {
+	margin-left:-20px;
+}
+
+.use{
+	padding-top:5%;
+	padding-bottom:15%;
+	padding-left:15%;
+	padding-right:25%;
+}
+
+.use p{
+	line-height: 1em;
+}
