@@ -6,6 +6,9 @@
 -->
 <html>
 	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
 		<title>LEAM Sangamon</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
@@ -15,19 +18,57 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		
 		<noscript>
 		  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
+		
+		<style>
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
 	</head>
 	<body id="top">
 	<!-- Header -->
 			<header id="header" class="skel-layers-fixed">				
 <nav id="nav">
- <a id="brand" class="brand" href="index.html"><img src="images/last.png" width="15%" height="auto" alt=""/></a>
-  <img src="images/top.png" width="80%" height="auto" alt=""/>
+ <a id="brand" class="brand" href="index.html"><img src="images/last.png" width="10%" height="auto" alt=""/></a>
+  <img src="images/top.png" width="70%" height="auto" alt=""/>
 	  <ul>
 		  <li><a href="index.html">Home</a></li>
 		  <li><a href="#feedback">Feedback</a></li>
@@ -39,31 +80,34 @@
 
 <!--Map-->
 <div id="middle" class="row">
+<iframe id="frame" src="http://portal.leam.illinois.edu/chicagotest2/luc/scenarios/test_0628_min/details/pop_res_score10/" width = "85%" height = "1000px" scrolling="no" >  </iframe>
 
-	<iframe id="frame" src="http://portal.leam.illinois.edu/chicagotest2/luc/scenarios/test_0628_min/details/pop_res_score10/" width = "85%" height = "1000px" scrolling="no" >  </iframe>
 <div id="select" style="width:25%;">
-<h3>Select a city to check last mile problem map</h3>
+<div id="legend" style="margin-top:-12%;">
+<h3><strong>Legend</strong></h3>
+<img src="images/legend.jpg" width="110%" height="auto" alt=""/>
+</div>
+<h3><strong>Select a city to check last mile problem map</strong></h3>
 <p>LM model have covered all cities in USA. Choose the places you care about last mile problem in the following boxes to see the map. </p>
-<h4>Select State</h4>
+<h4><strong>Select State</strong></h4>
 	<select class="selectpicker" data-live-search="true">
   <option data-tokens="il">Alabama</option>
   <option data-tokens="mo">California</option>
   <option data-tokens="frosting">Illinois</option>
   </select>
-  <h4>Select County</h4>
+  <h4><strong>Select County</strong></h4>
  <select class="selectpicker" data-live-search="true">
   <option data-tokens="cook">Cook County</option>
   <option data-tokens="champaign">Champaign County</option>
   <option data-tokens="sangamon">Sangamon County</option>
 </select>
 
- <h4>Select City/Town</h4>
+ <h4><strong>Select City/Town</strong></h4>
  <select class="selectpicker" data-live-search="true">
   <option data-tokens="chicago">City of Chicago</option>
   <option data-tokens="Oak">City of Champaign</option>
   <option data-tokens="frosting">City of Springfield</option>
 </select>
-
 </div> 
 
 </div>
@@ -103,30 +147,44 @@
 			
 	<div id="feedback" class="section">
      <div class="container">
-      <h2>Tell Us Your Feeling</h2>
-      <div class="line1">
-      <div class="portion-lg"><h3>Any Feedback?</h3>
-      <div class="feedback-box">
-<!--        <img src="images/feedback.png" alt=""/> -->
-        <form action="action_page.php" class="form">
-       <div class="form-group feedback-typing">
-        <label for="comment" style="padding-left: 10px">Comments on Model:</label>
-        <textarea class="form-control" rows="5" id="commment-model"></textarea>
-       </div>
-       <div class="form-group feedback-typing">
-        <label for="comment" style="padding-left: 10px">Report the address that have undetected last mile problems:</label>
-        <textarea class="form-control" rows="5" id="comment-website"></textarea>
-       </div>
-       <div class="">
-        <button type="button" class="btn btn-primary btn-lg" onClick="MM_popupMsg('Received! Thank you!')">Submit</button>
-       </div>
-     </form>
-    </div>
-    </div>
+      <h2><strong>Your feedbacks are important for system improving.
+		  <br/>
+		  Tell us your felling and earn credits to download maps!</strong></h2>
+   
+<h4><strong>1. Your assessment on accuracy of last mile problem maps</strong></h4>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  <p>Value: <span id="demo"></span></p>
+</div>
+
+<h4><strong>2. Report a location that has unobserved last mile problem by our LM system</strong></h4>
+<form action="/action_page.php">
+ <input type="text" name="FirstName" value="(eg. 510 S Fourth St, Champaign, IL 61820)">
+</form>
+<h4><strong>3. Enter a city name  where you want to see last mile problems most</strong></h4>
+<form action="/action_page.php">
+ <input type="text" name="lastName" value="(eg. Champaign, IL)">
+</form>
+<h4><strong>4. Your application of the last mile problem maps </strong></h4>
+<iframe src="selection2.html" width="100%" height="40em"></iframe>
+
+<form action="/action_page.php">
+ <input type="text" name="Name" value="Others(Please Specify)">
+</form>
+
+<h4><strong>5. Web interface and functions' user friendly level</strong></h4>
+<iframe src="selection1.html" width="100%" height="40em"></iframe>
+<form action="/action_page.php">
+ <input type="text" name="sug" value="Other suggestions)">
+</form>
+<form action="/action_page.php">
+ <input type="submit" name="submit" value="Submit" style="background-color:green;">
+</form>
+
 </div>
  
 </div>   	
-	</div>			
+		
 	
 			
 		<!-- Footer -->
@@ -170,6 +228,16 @@
 					</div>
 				</div>
 			</footer>
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
 	</body>
 </html>
+
+
